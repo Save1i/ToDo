@@ -103,7 +103,7 @@ body {
   background-color: #fee2e28c;
   border: solid #ef4444 3px;
   border-top: none;
-  height: calc(100vh - 104.8px);
+  height: 100vh;
   min-width: 300px;
   padding: 20px 20px 20px 15px;
   grid-column-start: 1;
