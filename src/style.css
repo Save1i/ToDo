@@ -1,16 +1,16 @@
 @font-face {
   font-family: "04b_30";
-  src: url("./04B_30__.TTF") format("truetype");
+  src: url("./04B_30__.woff2") format("truetype");
 }
 
 @font-face {
   font-family: "Daydream";
-  src: url("./Daydream.ttf") format("truetype");
+  src: url("./Daydream.woff2") format("truetype");
 }
 
 @font-face {
   font-family: "determination2";
-  src: url("./determination2.ttf") format("truetype");
+  src: url("./determination2.woff2") format("truetype");
 }
 
 .russian {

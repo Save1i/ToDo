@@ -1,6 +1,5 @@
 // Import CSS
 import "./style.css";
-import header from "./header.js";
 import { createSideBar } from "./sideBar.js";
 import "./logic.js";
 
