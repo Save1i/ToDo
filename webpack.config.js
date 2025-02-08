@@ -7,6 +7,11 @@ module.exports = {
   entry: {
     main: "./src/main.js",
   },
+  performance: {
+    hints: false, // Отключает предупреждения Webpack
+    maxEntrypointSize: 512000, // Увеличивает лимит размера
+    maxAssetSize: 512000, // Увеличивает максимальный размер ассета
+  },
   devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({

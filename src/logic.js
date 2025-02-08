@@ -100,14 +100,8 @@ class Project {
   }
 
   getNewProjectId() {
-    // Find the maximum id among all projects and return a new unique id
-    let max = 0;
-    for (const project of Project._allProjects) {
-      if (project.id > max) {
-        max = project.id;
-      }
-    }
-    return max + 1;
+    if (Project._allProjects.length === 0) return 1;
+    return Math.max(...Project._allProjects.map((p) => p.id), 0) + 1;
   }
 
   getNewTaskId() {
@@ -349,18 +343,16 @@ document.addEventListener("DOMContentLoaded", () => {
     newProject.applyFontBasedOnLanguage(newProject.title, newProject.projectBtn);
   });
   // Load existing projects
-  const existingProjects = JSON.parse(localStorage.getItem("allProjects"));
-  if (existingProjects) {
-    for (const projData of existingProjects) {
-      const project = new Project(
-        document.querySelector(".projects__inner"),
-        projData.project.title,
-        projData.project.id
-      );
-      project.applyFontBasedOnLanguage(projData.project.title, project.projectBtn);
-      project.loadTasks(); // Load tasks for the project
-    }
-  }
+  const existingProjects = JSON.parse(localStorage.getItem("allProjects")) ?? [];
+  existingProjects.forEach((projData) => {
+    const project = new Project(
+      document.querySelector(".projects__inner"),
+      projData.project.title,
+      projData.project.id
+    );
+    project.applyFontBasedOnLanguage(projData.project.title, project.projectBtn);
+    project.loadTasks();
+  });
 
   const openSidebar = document.querySelector(".sidebar__svg");
   const sideBar = document.querySelector(".sidebar");
